@@ -1,8 +1,3 @@
-// functions to run and bind the parameters of the data before inserting into the database.
-// this statement ($stmt = $pdo->prepare) will prevent the SQL injection 
-// paki check nalang maigi Eugene, at paki-intindi. Thanks!
-
-
 <?php
 
 declare(strict_types=1);
