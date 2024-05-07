@@ -23,11 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $result = getUser($pdo, $username);
 
         if (isUsernameWrong($result)) {
-            $errors["login_incorrect"] = "Incorrrect Login info!";
-        }
+            $errors["login_incorrect"] = "Incorrect Login info!";
 
+        }
+        
         if (!isUsernameWrong($result) && isPasswordWrong($password, $result["password"])) {
-            $errors["login_incorrect"] = "Incorrrect Login info!";
+            $errors["login_incorrect"] = "Incorrect Login info!";
         }
 
         //I-start nya yung session para mag run yung error sa baba 
@@ -40,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             die();
         }
 
-
+        // If there are no errors, set session variables and redirect to homepage
         $newSessionId = session_create_id();
         $sessionId = $newSessionId . "_" . $result["id"];
         session_id($sessionId);
@@ -50,13 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $_SESSION["last_regeneration"] = time();
         header("Location: ../Homepage.php?login=success");
-        $pdo = null;
-        $statement = null;
+        exit(); // Terminate the script
 
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage());
     }
-
 }
 
 else{

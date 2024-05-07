@@ -1,5 +1,3 @@
-
-
 <?php
 
 ini_set('session.use_only_cookies', 1);
@@ -51,3 +49,4 @@ function custom_session_regenerate_id_loggedin() {
     session_id($sessionId);
     $_SESSION["last_regeneration"] = time();
 }
+

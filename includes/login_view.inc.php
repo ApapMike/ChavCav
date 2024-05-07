@@ -14,12 +14,14 @@ function check_login_errors(){
         echo "<br>";
 
         foreach ($errors as $error) {
-            echo '<p class=form-error">' . $error . '</p>';
+            // JavaScript code to show pop-up message
+            echo '<script>alert("' . $error . '");</script>';
         }
 
         unset($_SESSION["errors_login"]);
+    } elseif (isset($_GET['login']) && $_GET['login'] === "success") {
+        // Optionally, display a success message
+        echo '<script>alert("Login successful!");</script>';
+        echo '<br>';
     }
-
-    else if (isset($_GET['login']) && $_GET['login'] === "success");
-    echo '<br>';
 }

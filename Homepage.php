@@ -21,8 +21,7 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="shortcut icon" type="image/x-icon" href="./imgs/tablogo.ico">
 </head>
 <body>
-    <!-- Your homepage content goes here -->
-    <header>
+<header>
         <div class="logo">
             <img src="./imgs/logo.png" alt="Logo">
         </div>
@@ -31,6 +30,12 @@ if (!isset($_SESSION['user_id'])) {
             <form action="includes/logout.inc.php" method="post">
                 <button class="logout">Logout</button>
             </form>
+            <!-- Profile button to enter user page -->
+            <div class="profile-container">
+                <form action="userpage.php" method="get">
+                    <button class="profile">Profile</button>
+                </form>
+            </div>
         </div>
     </header>
     <!-- Other content goes here -->
